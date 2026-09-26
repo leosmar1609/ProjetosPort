@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Agendar sessão</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:opsz,wght@8..30,500;8..30,600;8..30,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="../css/styles.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/">Anna Barbosa</a>
+    <nav>
+      <a href="painel.html">← Minhas sessões</a>
+      <a href="../perfil.html">Perfil</a>
+      <a href="#" id="link-sair">Sair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-estreito">
+  <h1>Escolha um horário</h1>
+  <div id="aviso" class="aviso" hidden></div>
+
+  <div class="cartao">
+    <div class="lista-horarios" id="lista-horarios"></div>
+    <p id="texto-vazio" class="rodape-nota" hidden>Não há horários livres no momento. Fale com a fisioterapeuta.</p>
+  </div>
+
+  <p style="margin-top:1.2rem;">
+    <button class="btn btn-primario" id="btn-confirmar" disabled>Confirmar agendamento</button>
+  </p>
+</main>
+
+<script src="../js/api.js"></script>
+<script>
+  exigirSessao('paciente');
+  document.getElementById('link-sair').addEventListener('click', (ev) => { ev.preventDefault(); sair(); });
+
+  const aviso = document.getElementById('aviso');
+  const lista = document.getElementById('lista-horarios');
+  const btnConfirmar = document.getElementById('btn-confirmar');
+  let escolhidoId = null;
+
+  async function carregar() {
+    try {
+      const { horarios } = await api('/horarios?status=livre');
+      document.getElementById('texto-vazio').hidden = horarios.length > 0;
+
+      lista.innerHTML = '';
+      horarios.forEach((h) => {
+        const div = document.createElement('div');
+        div.className = 'horario-opcao';
+        div.dataset.id = h.id;
+        div.innerHTML = `<span>${formatarData(h.data)} às ${h.hora}</span><span>${h.duracao_minutos} min</span>`;
+        div.addEventListener('click', () => {
+          escolhidoId = h.id;
+          lista.querySelectorAll('.horario-opcao').forEach((el) => el.classList.remove('selecionado'));
+          div.classList.add('selecionado');
+          btnConfirmar.disabled = false;
+        });
+        lista.appendChild(div);
+      });
+    } catch (erro) {
+      mostrarAviso(aviso, erro.message);
+    }
+  }
+
+  btnConfirmar.addEventListener('click', async () => {
+    if (!escolhidoId) return;
+    btnConfirmar.disabled = true;
+    try {
+      await api('/sessoes', { method: 'POST', body: { horario_id: escolhidoId } });
+      window.location.href = 'painel.html';
+    } catch (erro) {
+      mostrarAviso(aviso, erro.message);
+      btnConfirmar.disabled = false;
+    }
+  });
+
+  carregar();
+</script>
+</body>
+</html>

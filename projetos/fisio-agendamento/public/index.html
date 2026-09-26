@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anna Barbosa — Fisioterapia</title>
+<meta name="description" content="Anna Beatriz Barbosa Rosa, fisioterapeuta (CREFITO-3/391020-F) — atendimento em Ortopedia e Traumatologia Esportiva e em Fisioterapia Neurofuncional, com agendamento online.">
+<meta name="theme-color" content="#1B5E45">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:ital,opsz,wght@0,8..30,500;0,8..30,600;0,8..30,700;1,8..30,500&family=Nunito+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+<style>
+  h1,h2{text-wrap:balance;}
+
+  .hero{padding:clamp(2.6rem,6vw,4.6rem) 0 clamp(3.2rem,7vw,5.2rem); overflow:hidden;}
+  .hero .wrap{display:grid; grid-template-columns:1.05fr .95fr; gap:clamp(2.4rem,5vw,4.5rem); align-items:center;}
+  @media (max-width:860px){ .hero .wrap{grid-template-columns:1fr;} }
+
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:.5rem;
+    font-size:.78rem; font-weight:800; letter-spacing:.07em; text-transform:uppercase;
+    color:var(--accent-strong); background:#F5ECD3;
+    padding:.45rem 1rem; border-radius:100px; margin-bottom:1.3rem;
+  }
+  .hero h1{font-size:clamp(2.3rem,5vw,3.3rem); line-height:1.14; max-width:14ch;}
+  .hero p.lead{color:var(--text-muted); max-width:46ch; font-size:1.12rem; margin:1.3rem 0 1.9rem;}
+  .hero-ctas{display:flex; gap:1rem; flex-wrap:wrap;}
+
+  .foto-moldura{position:relative; max-width:440px; margin:0 auto;}
+  .foto-moldura::before{
+    content:""; position:absolute; inset:-20px -24px auto auto; width:80%; height:90%;
+    background:var(--surface-2); border-radius:36px; z-index:0;
+  }
+  .foto-moldura img{
+    position:relative; z-index:1; display:block; width:100%; aspect-ratio:3/4; object-fit:cover;
+    border-radius:26px; box-shadow:0 34px 64px -28px rgba(27,94,69,.45);
+  }
+  .selo{
+    position:relative; z-index:2; margin-top:-2.4rem; margin-left:1.6rem;
+    display:inline-flex; align-items:center; gap:.55rem;
+    background:var(--surface); border:1px solid var(--border); border-radius:100px;
+    padding:.55rem 1.1rem .55rem .6rem; font-size:.82rem; font-weight:700; color:var(--brand);
+    box-shadow:0 16px 32px -16px rgba(27,94,69,.4);
+  }
+  .selo .bola{width:28px; height:28px; border-radius:50%; background:var(--brand); color:#fff;
+    display:flex; align-items:center; justify-content:center; font-size:.72rem; flex:none;}
+
+  .faixa.verde{background:var(--brand); color:#F3F7F1;}
+  .faixa.verde h2, .faixa.verde .eyebrow{color:#fff;}
+  .faixa.verde .eyebrow{background:rgba(255,255,255,.14); color:#EFE3BE;}
+  .faixa.verde p{color:#D7E5DC;}
+
+  .cabecalho-secao{max-width:56ch; margin:0 auto clamp(2.2rem,4vw,3rem);}
+  .cabecalho-secao.centro{text-align:center;}
+  .cabecalho-secao h2{font-size:clamp(1.7rem,3.4vw,2.3rem);}
+
+  .sobre-grid{display:grid; grid-template-columns:.85fr 1.15fr; gap:clamp(2rem,5vw,3.6rem); align-items:center;}
+  @media (max-width:860px){ .sobre-grid{grid-template-columns:1fr;} }
+  .sobre-grid img{width:100%; max-width:420px; aspect-ratio:4/5; object-fit:cover; border-radius:20px; box-shadow:0 28px 56px -28px rgba(0,0,0,.5);}
+
+  .credenciais{list-style:none; margin:1.5rem 0 0; padding:0; display:flex; flex-direction:column; gap:.85rem;}
+  .credenciais li{display:flex; gap:.65rem; align-items:flex-start; font-size:.98rem;}
+  .credenciais svg{flex:none; margin-top:.15rem; color:#EFE3BE;}
+
+  .especialidades{display:grid; grid-template-columns:repeat(3,1fr); gap:1.6rem; margin-top:2.4rem;}
+  @media (max-width:780px){ .especialidades{grid-template-columns:1fr;} }
+  .esp-card{background:var(--surface); border:1px solid var(--border); border-radius:18px; padding:1.8rem;
+    box-shadow:0 18px 36px -30px rgba(28,43,34,.4);}
+  .esp-icone{width:46px; height:46px; border-radius:12px; background:var(--surface-2); color:var(--brand);
+    display:flex; align-items:center; justify-content:center; margin-bottom:1.1rem;}
+  .esp-card h3{font-size:1.1rem;}
+  .esp-card p{color:var(--text-muted); font-size:.94rem; margin:0;}
+
+  .passos{display:grid; grid-template-columns:repeat(3,1fr); gap:1.4rem; margin-top:2.4rem;}
+  @media (max-width:780px){ .passos{grid-template-columns:1fr;} }
+  .passo{background:var(--surface); border:1px solid var(--border); border-radius:16px; padding:1.6rem;}
+  .passo span{font-family:"Petrona",serif; font-weight:700; color:var(--accent-strong); font-size:1.5rem;}
+  .passo h3{font-size:1.05rem; margin:.6rem 0 .5rem;}
+  .passo p{margin:0; color:var(--text-muted); font-size:.92rem;}
+
+  .depoimento{display:grid; grid-template-columns:.7fr 1.3fr; gap:clamp(2rem,5vw,3.4rem); align-items:center;}
+  @media (max-width:780px){ .depoimento{grid-template-columns:1fr;} }
+  .depoimento img{width:100%; max-width:360px; aspect-ratio:4/5; object-fit:cover; border-radius:20px;
+    box-shadow:0 24px 48px -26px rgba(28,43,34,.45);}
+  .depoimento blockquote{margin:0; font-family:"Petrona",serif; font-style:italic; font-size:clamp(1.25rem,2.6vw,1.55rem); line-height:1.48; color:var(--text);}
+  .depoimento cite{display:block; margin-top:1.2rem; font-style:normal; font-weight:700; color:var(--brand); font-size:.92rem;}
+
+  .contato-grid{display:grid; grid-template-columns:1fr 1.15fr; gap:clamp(1.6rem,4vw,2.6rem); align-items:start;}
+  @media (max-width:780px){ .contato-grid{grid-template-columns:1fr;} }
+  .contato-grid img{width:100%; max-width:340px; aspect-ratio:1/1; object-fit:cover; border-radius:18px;
+    box-shadow:0 24px 48px -26px rgba(28,43,34,.45);}
+
+  footer.rodape{background:#12261C; color:#CFE0D6; padding:clamp(2.2rem,5vw,3rem) 0;}
+  footer.rodape .marca{font-family:"Petrona",serif; font-weight:700; font-size:1.25rem; color:#fff;}
+  footer.rodape p{margin:.6rem 0 0; font-size:.86rem; color:#9FB5A7; line-height:1.6;}
+
+  @media (max-width:480px){
+    .selo{margin-left:.4rem; font-size:.76rem;}
+    .foto-moldura{max-width:320px;}
+  }
+</style>
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/">Anna Barbosa</a>
+    <nav>
+      <a href="#sobre">Sobre</a>
+      <a href="#especialidades">Especialidades</a>
+      <a href="#contato">Contato</a>
+      <a href="/login.html" id="link-entrar">Entrar</a>
+      <a href="/cadastro.html" id="link-cadastro">Já tenho um código</a>
+      <a href="#" id="link-painel" hidden>Meu painel</a>
+      <a href="#" id="link-sair" hidden>Sair</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <div class="wrap">
+      <div>
+        <span class="eyebrow">Fisioterapia individualizada</span>
+        <h1>Cuidado de perto, pra você se mover sem dor de novo.</h1>
+        <p class="lead">
+          Sou Anna Barbosa, fisioterapeuta especializada em Ortopedia/Traumatologia Esportiva e em
+          Neurofuncional. Conte um pouco sobre o que você está sentindo — depois da nossa conversa,
+          você agenda sua sessão online, no horário que funcionar melhor pra você.
+        </p>
+        <div class="hero-ctas">
+          <a class="btn btn-primario" href="#contato">Contar meu caso</a>
+          <a class="btn btn-secundario" href="/cadastro.html">Já tenho um código</a>
+        </div>
+      </div>
+
+      <div>
+        <div class="foto-moldura">
+          <img src="img/anna-hero.jpg" alt="Anna Barbosa, fisioterapeuta, sorrindo em consultório de fisioterapia">
+        </div>
+        <div class="selo">
+          <span class="bola">✓</span> CREFITO-3/391020-F
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sobre" class="faixa verde">
+    <div class="wrap sobre-grid">
+      <img src="img/anna-formatura.jpg" alt="Anna Barbosa na formatura de Fisioterapia">
+      <div>
+        <span class="eyebrow">Sobre a Anna</span>
+        <h2>Formação sólida, cuidado de perto</h2>
+        <p>
+          Anna Beatriz Barbosa Rosa é fisioterapeuta com pós-graduação nas duas áreas que mais pedem
+          atenção individualizada: reabilitação ortopédica/esportiva e reabilitação neurofuncional.
+          Cada plano de tratamento é pensado pro seu caso — não existe protocolo genérico.
+        </p>
+        <ul class="credenciais">
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> CREFITO-3/391020-F</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pós-graduação em Traumato-Ortopedia e Traumatologia Esportiva</li>
+          <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none"><path d="M20 6 9 17l-5-5" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/></svg> Pós-graduação em Fisioterapia Neurofuncional</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section id="especialidades">
+    <div class="wrap">
+      <div class="cabecalho-secao centro">
+        <span class="eyebrow">Especialidades</span>
+        <h2>Onde eu posso te ajudar</h2>
+      </div>
+      <div class="especialidades">
+        <div class="esp-card">
+          <div class="esp-icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 4c-3 0-5 2.2-5 5.4 0 3.6 2 5.4 2.6 8.6.3 1.6 2.5 1.6 2.8 0 .1-.6.3-1.1.6-1.6.3.5.5 1 .6 1.6.3 1.6 2.5 1.6 2.8 0C17 14.8 19 13 19 9.4 19 6.2 17 4 14 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Ortopedia &amp; Traumato-Esportiva</h3>
+          <p>Reabilitação pós-cirúrgica, lesões musculares e articulares, dores crônicas e retorno seguro à atividade física ou ao esporte.</p>
+        </div>
+        <div class="esp-card">
+          <div class="esp-icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><circle cx="12" cy="6" r="2.6" stroke="currentColor" stroke-width="1.6"/><path d="M12 8.6v6M8 20l4-5.4L16 20M9 12h6" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <h3>Neurofuncional</h3>
+          <p>Reabilitação de pacientes com alterações neurológicas — AVC, lesões medulares e outras condições que afetam o movimento.</p>
+        </div>
+        <div class="esp-card">
+          <div class="esp-icone"><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 21s-7-4.35-9.5-8.5C.8 9 2 5.5 5.3 4.6 7.6 4 9.8 5 12 7.2 14.2 5 16.4 4 18.7 4.6 22 5.5 23.2 9 21.5 12.5 19 16.65 12 21 12 21Z" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"/></svg></div>
+          <h3>Avaliação individual</h3>
+          <p>Toda sessão começa por entender sua história — o que você sente, desde quando e o que já tentou antes.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa">
+    <div class="wrap">
+      <div class="cabecalho-secao centro">
+        <span class="eyebrow">Como funciona</span>
+        <h2>Do primeiro contato ao agendamento</h2>
+      </div>
+      <div class="passos">
+        <div class="passo">
+          <span>01</span>
+          <h3>Conte seu caso</h3>
+          <p>Preencha o formulário de contato com um resumo do que você está sentindo.</p>
+        </div>
+        <div class="passo">
+          <span>02</span>
+          <h3>Receba seu código</h3>
+          <p>Depois da nossa conversa, você recebe um código de acesso liberado especialmente pra você.</p>
+        </div>
+        <div class="passo">
+          <span>03</span>
+          <h3>Agende online</h3>
+          <p>Use o código pra criar sua conta e escolher o melhor horário disponível na agenda.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="faixa">
+    <div class="wrap depoimento">
+      <img src="img/anna-clinica.jpg" alt="Anna Barbosa em atendimento no consultório">
+      <div>
+        <blockquote>
+          “Cada paciente chega com uma história diferente — meu trabalho é entender essa história
+          antes de montar qualquer plano de tratamento.”
+        </blockquote>
+        <cite>Anna Barbosa, fisioterapeuta</cite>
+      </div>
+    </div>
+  </section>
+
+  <section id="contato" class="faixa">
+    <div class="wrap contato-grid">
+      <img src="img/anna-perfil.jpg" alt="Anna Barbosa segurando um estetoscópio em formato de coração">
+      <div class="cartao">
+        <h2>Vamos conversar sobre o seu caso?</h2>
+        <p class="rodape-nota" style="margin-top:-.4rem;margin-bottom:1.2rem;">
+          Isso não agenda nada ainda — é só pra gente conversar antes.
+        </p>
+        <div id="aviso-contato" class="aviso" hidden></div>
+        <form id="form-contato">
+          <div class="campo">
+            <label for="nome">Nome</label>
+            <input id="nome" name="nome" type="text" required>
+          </div>
+          <div class="campo">
+            <label for="telefone">WhatsApp ou telefone</label>
+            <input id="telefone" name="telefone" type="text">
+          </div>
+          <div class="campo">
+            <label for="mensagem">O que você está sentindo?</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+          </div>
+          <button class="btn btn-primario" type="submit" style="width:100%;">Enviar</button>
+        </form>
+      </div>
+    </div>
+    <p class="rodape-nota wrap" style="margin-top:1.4rem;">Já recebeu um código? <a href="/cadastro.html">Crie sua conta aqui</a>.</p>
+  </section>
+</main>
+
+<footer class="rodape">
+  <div class="wrap">
+    <span class="marca">Anna Barbosa</span>
+    <p>Anna Beatriz Barbosa Rosa · Fisioterapeuta · CREFITO-3/391020-F</p>
+    <p>Pós-graduada em Traumato-Ortopedia e Traumatologia Esportiva · Pós-graduada em Fisioterapia Neurofuncional</p>
+  </div>
+</footer>
+
+<script src="js/api.js"></script>
+<script>
+  // Se já tiver uma sessão salva (fisio ou paciente), troca "Entrar"/"Já tenho um código"
+  // por "Meu painel"/"Sair" — assim voltar pra home não dá a impressão de ter deslogado.
+  const sessaoHome = sessaoAtual();
+  if (sessaoHome) {
+    document.getElementById('link-entrar').hidden = true;
+    document.getElementById('link-cadastro').hidden = true;
+
+    const linkPainel = document.getElementById('link-painel');
+    linkPainel.href = sessaoHome.usuario.tipo === 'fisio' ? '/fisio/painel.html' : '/paciente/painel.html';
+    linkPainel.hidden = false;
+
+    const linkSairHome = document.getElementById('link-sair');
+    linkSairHome.hidden = false;
+    linkSairHome.addEventListener('click', (ev) => { ev.preventDefault(); sair(); });
+  }
+
+  const form = document.getElementById('form-contato');
+  const aviso = document.getElementById('aviso-contato');
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    aviso.hidden = true;
+    const dados = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      await api('/contato', { method: 'POST', body: dados, autenticado: false });
+      form.reset();
+      mostrarAviso(aviso, 'Mensagem enviada! Em breve entramos em contato.', 'ok');
+    } catch (erro) {
+      mostrarAviso(aviso, erro.message);
+    }
+  });
+</script>
+</body>
+</html>

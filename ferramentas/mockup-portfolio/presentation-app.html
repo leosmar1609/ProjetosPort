@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Archivo:wght@400;500;600&family=IBM+Plex+Mono:wght@500&display=swap">
+<style>
+  html,body{margin:0;width:1600px;height:1000px;overflow:hidden;font-family:"Archivo",sans-serif;}
+  body{
+    background:
+      radial-gradient(900px 600px at 90% 10%, rgba(176,129,55,.16), transparent 60%),
+      radial-gradient(900px 700px at 8% 94%, rgba(31,58,52,.14), transparent 60%),
+      linear-gradient(155deg, #EEF1E6 0%, #E6EADA 55%, #E0E6D2 100%);
+  }
+  .stage{width:1600px; height:1000px; position:relative;}
+  .kicker{
+    position:absolute; top:56px; left:64px;
+    font-family:"IBM Plex Mono", monospace; font-size:13px; letter-spacing:.12em;
+    text-transform:uppercase; color:#8F672D;
+  }
+  .kicker b{display:block; font-family:"Fraunces", serif; font-size:26px; font-weight:600;
+    letter-spacing:0; text-transform:none; color:#1F3A34; margin-top:6px;}
+  .signature{
+    position:absolute; bottom:44px; right:64px;
+    font-family:"Fraunces", serif; font-size:15px; color:#5C6A5F; opacity:.65;
+  }
+  .window{
+    position:absolute; left:50%; top:53%; transform:translate(-50%,-50%);
+    width:1300px; border-radius:14px; overflow:hidden;
+    box-shadow: 0 80px 140px -50px rgba(20,32,26,.45), 0 24px 48px -24px rgba(20,32,26,.3);
+    line-height:0;
+  }
+  .window img{display:block; width:100%; height:auto;}
+</style>
+</head>
+<body>
+  <!-- TROQUE: categoria, nome do projeto e o arquivo da screenshot (já cortada com crop.ps1, se preciso) -->
+  <div class="stage">
+    <div class="kicker">Categoria do projeto<b>Nome do projeto</b></div>
+    <div class="signature">cadência</div>
+    <div class="window">
+      <img src="screenshot.png" alt="">
+    </div>
+  </div>
+</body>
+</html>

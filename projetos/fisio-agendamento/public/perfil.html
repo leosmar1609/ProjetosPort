@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Meu perfil</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:opsz,wght@8..30,500;8..30,600;8..30,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/">Anna Barbosa</a>
+    <nav>
+      <a href="#" id="link-voltar">← Voltar</a>
+      <a href="#" id="link-sair">Sair</a>
+    </nav>
+  </div>
+</header>
+
+<main class="wrap-estreito">
+  <h1>Meu perfil</h1>
+
+  <div id="aviso-foto" class="aviso" hidden></div>
+  <div class="cartao" style="margin-bottom:1.4rem;">
+    <div class="linha-avatar">
+      <div class="avatar avatar-grande" id="avatar-preview"></div>
+      <div class="campo-foto">
+        <label for="foto">Foto de perfil</label>
+        <input type="file" id="foto" accept="image/png,image/jpeg,image/webp">
+        <button class="btn btn-secundario" id="btn-foto" type="button" disabled>Salvar foto</button>
+        <span class="rodape-nota" style="margin:0;">JPG, PNG ou WEBP, até 3MB.</span>
+      </div>
+    </div>
+  </div>
+
+  <div id="aviso-senha" class="aviso" hidden></div>
+  <div class="cartao">
+    <h2 style="font-size:1.1rem;">Trocar senha</h2>
+    <form id="form-senha">
+      <div class="campo">
+        <label for="senha_atual">Senha atual</label>
+        <input id="senha_atual" name="senha_atual" type="password" required>
+      </div>
+      <div class="campo">
+        <label for="nova_senha">Nova senha</label>
+        <input id="nova_senha" name="nova_senha" type="password" minlength="6" required>
+      </div>
+      <div class="campo">
+        <label for="confirmar_senha">Confirmar nova senha</label>
+        <input id="confirmar_senha" name="confirmar_senha" type="password" minlength="6" required>
+      </div>
+      <button class="btn btn-primario" type="submit" style="width:100%;">Atualizar senha</button>
+    </form>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script>
+  const sessao = exigirSessao();
+  document.getElementById('link-voltar').href = sessao.usuario.tipo === 'fisio' ? '/fisio/painel.html' : '/paciente/painel.html';
+  document.getElementById('link-sair').addEventListener('click', (ev) => { ev.preventDefault(); sair(); });
+
+  const avisoFoto = document.getElementById('aviso-foto');
+  const avisoSenha = document.getElementById('aviso-senha');
+  const avatarPreview = document.getElementById('avatar-preview');
+  const campoFoto = document.getElementById('foto');
+  const btnFoto = document.getElementById('btn-foto');
+
+  async function carregarPerfil() {
+    try {
+      const { usuario } = await api('/perfil');
+      preencherAvatar(avatarPreview, usuario);
+      sessao.usuario.foto_url = usuario.foto_url;
+      localStorage.setItem('fisio_usuario', JSON.stringify(sessao.usuario));
+    } catch (erro) {
+      mostrarAviso(avisoFoto, erro.message);
+    }
+  }
+
+  campoFoto.addEventListener('change', () => {
+    btnFoto.disabled = !campoFoto.files.length;
+    if (campoFoto.files.length) {
+      const url = URL.createObjectURL(campoFoto.files[0]);
+      avatarPreview.textContent = '';
+      const img = document.createElement('img');
+      img.src = url;
+      img.alt = '';
+      img.style.width = '100%';
+      img.style.height = '100%';
+      img.style.objectFit = 'cover';
+      avatarPreview.appendChild(img);
+    }
+  });
+
+  btnFoto.addEventListener('click', async () => {
+    if (!campoFoto.files.length) return;
+    avisoFoto.hidden = true;
+    btnFoto.disabled = true;
+    btnFoto.textContent = 'Enviando...';
+
+    const formData = new FormData();
+    formData.append('foto', campoFoto.files[0]);
+
+    try {
+      await apiUpload('/perfil/foto', formData);
+      mostrarAviso(avisoFoto, 'Foto atualizada!', 'ok');
+      campoFoto.value = '';
+      await carregarPerfil();
+    } catch (erro) {
+      mostrarAviso(avisoFoto, erro.message);
+    } finally {
+      btnFoto.disabled = true;
+      btnFoto.textContent = 'Salvar foto';
+    }
+  });
+
+  document.getElementById('form-senha').addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    avisoSenha.hidden = true;
+    const dados = Object.fromEntries(new FormData(ev.target).entries());
+
+    if (dados.nova_senha !== dados.confirmar_senha) {
+      mostrarAviso(avisoSenha, 'A confirmação não bate com a nova senha.');
+      return;
+    }
+
+    try {
+      await api('/perfil/senha', { method: 'PATCH', body: dados });
+      mostrarAviso(avisoSenha, 'Senha atualizada!', 'ok');
+      ev.target.reset();
+    } catch (erro) {
+      mostrarAviso(avisoSenha, erro.message);
+    }
+  });
+
+  carregarPerfil();
+</script>
+</body>
+</html>

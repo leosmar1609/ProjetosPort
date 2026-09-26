@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+
+  <!-- o parent do Spring Boot só pra herdar as versões das bibliotecas (Jackson, JUnit...) em todos os módulos -->
+  <parent>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-parent</artifactId>
+    <version>4.1.1</version>
+    <relativePath/>
+  </parent>
+
+  <groupId>br.com.lojaodamari</groupId>
+  <artifactId>lojaodamari</artifactId>
+  <version>1.0.0</version>
+  <packaging>pom</packaging>
+  <name>LojãoDaMari</name>
+
+  <modules>
+    <module>comum</module>
+    <module>servidor</module>
+    <module>desktop</module>
+  </modules>
+
+  <properties>
+    <java.version>25</java.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <javafx.version>27</javafx.version>
+    <java-jwt.version>4.6.1</java-jwt.version>
+    <springdoc.version>3.1.1</springdoc.version>
+  </properties>
+
+  <dependencyManagement>
+    <dependencies>
+      <dependency>
+        <groupId>br.com.lojaodamari</groupId>
+        <artifactId>comum</artifactId>
+        <version>${project.version}</version>
+      </dependency>
+    </dependencies>
+  </dependencyManagement>
+</project>

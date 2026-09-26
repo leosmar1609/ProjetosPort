@@ -1,0 +1,23 @@
+{
+  "name": "prazo-api",
+  "version": "1.0.0",
+  "private": true,
+  "description": "API de dias úteis, prazos e feriados do Brasil.",
+  "type": "module",
+  "main": "server/local.js",
+  "scripts": {
+    "dev": "node --watch server/local.js",
+    "start": "node server/local.js",
+    "test": "node --test",
+    "criar-schema": "node db/executar-schema.js"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "dependencies": {
+    "dotenv": "^18.0.3",
+    "express": "^4.22.3",
+    "mysql2": "^3.24.4",
+    "serverless-http": "^4.0.0"
+  }
+}

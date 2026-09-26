@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Entrar</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Petrona:opsz,wght@8..30,500;8..30,600;8..30,700&family=Nunito+Sans:wght@400;500;600;700;800&display=swap">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+<header class="topo">
+  <div class="wrap">
+    <a class="marca" href="/">Anna Barbosa</a>
+    <nav><a href="/cadastro.html">Tenho um código</a></nav>
+  </div>
+</header>
+
+<main>
+  <div class="wrap-estreito">
+    <div class="cartao">
+      <h2>Entrar</h2>
+      <div id="aviso" class="aviso" hidden></div>
+      <form id="form-login">
+        <div class="campo">
+          <label for="email">E-mail</label>
+          <input id="email" name="email" type="email" required>
+        </div>
+        <div class="campo">
+          <label for="senha">Senha</label>
+          <input id="senha" name="senha" type="password" required>
+        </div>
+        <button class="btn btn-primario" type="submit" style="width:100%;">Entrar</button>
+      </form>
+    </div>
+    <p class="rodape-nota">Ainda não tem conta? <a href="/cadastro.html">Cadastre-se com seu código</a>.</p>
+  </div>
+</main>
+
+<script src="js/api.js"></script>
+<script>
+  redirecionarSeLogado();
+
+  const form = document.getElementById('form-login');
+  const aviso = document.getElementById('aviso');
+
+  form.addEventListener('submit', async (ev) => {
+    ev.preventDefault();
+    aviso.hidden = true;
+    const dados = Object.fromEntries(new FormData(form).entries());
+
+    try {
+      const resposta = await api('/auth/login', { method: 'POST', body: dados, autenticado: false });
+      salvarSessao(resposta.token, resposta.usuario);
+      window.location.href = resposta.usuario.tipo === 'fisio' ? '/fisio/painel.html' : '/paciente/painel.html';
+    } catch (erro) {
+      mostrarAviso(aviso, erro.message);
+    }
+  });
+</script>
+</body>
+</html>
