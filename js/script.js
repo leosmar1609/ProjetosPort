@@ -34,7 +34,7 @@ document.querySelectorAll('.reveal').forEach(function (el) {
 });
 
 // Botão "Enviar pelo WhatsApp" do formulário de orçamento
-var WHATSAPP_NUMBER = '5511994608491';
+var WHATSAPP_NUMBER = '5511979934136';
 var form = document.getElementById('quote-form');
 if (form) {
   form.addEventListener('submit', function (ev) {

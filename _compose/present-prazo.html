@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600&family=Archivo:wght@400;500;600&display=swap">
+<style>
+  html,body{margin:0;width:1600px;height:1000px;overflow:hidden;font-family:"Archivo",sans-serif;}
+  body{
+    background:
+      radial-gradient(900px 600px at 88% 8%, rgba(176,129,55,.16), transparent 60%),
+      radial-gradient(900px 700px at 6% 96%, rgba(31,58,52,.14), transparent 60%),
+      linear-gradient(155deg, #EEF1E6 0%, #E6EADA 55%, #E0E6D2 100%);
+  }
+  .stage{width:1600px; height:1000px; position:relative;}
+  .signature{
+    position:absolute; bottom:44px; right:64px;
+    font-family:"Fraunces", serif; font-size:15px; color:#5C6A5F; opacity:.65;
+  }
+  .browser{
+    position:absolute; left:50%; top:50%; transform:translate(-50%,-50%);
+    width:1320px; border-radius:18px; overflow:hidden; background:#0B0F1A;
+    box-shadow: 0 80px 140px -50px rgba(20,32,26,.45), 0 24px 48px -24px rgba(20,32,26,.3);
+  }
+  .browser-bar{
+    height:46px; background:#151A28; border-bottom:1px solid #262C3D;
+    display:flex; align-items:center; padding:0 18px; gap:20px;
+  }
+  .dots{display:flex; gap:8px;}
+  .dot{width:11px; height:11px; border-radius:50%;}
+  .dot:nth-child(1){background:#D9C08A;}
+  .dot:nth-child(2){background:#8B93AE;}
+  .dot:nth-child(3){background:#5B637D;}
+  .url-pill{
+    flex:1; max-width:460px; margin:0 auto; background:#1C2233; border:1px solid #2C334A;
+    border-radius:100px; padding:8px 16px; font-size:13.5px; color:#9AA3C0;
+    display:flex; align-items:center; gap:8px; justify-content:center;
+  }
+  .browser-body img{display:block; width:100%; height:auto;}
+</style>
+</head>
+<body>
+  <div class="stage">
+    <div class="signature">cadência</div>
+    <div class="browser">
+      <div class="browser-bar">
+        <div class="dots"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+        <div class="url-pill">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none"><rect x="5" y="10.5" width="14" height="9" rx="2" stroke="currentColor" stroke-width="1.8"/><path d="M8 10.5V7.5a4 4 0 0 1 8 0v3" stroke="currentColor" stroke-width="1.8"/></svg>
+          prazoapi.com.br
+        </div>
+      </div>
+      <div class="browser-body">
+        <img src="prazo-raw.png" alt="">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
