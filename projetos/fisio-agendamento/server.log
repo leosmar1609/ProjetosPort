@@ -1,5 +1,0 @@
-
-> fisio-agendamento@0.1.0 dev
-> cross-env NODE_EXTRA_CA_CERTS=./certs/kaspersky-root.pem node server/local.js
-
-Rodando em http://localhost:3000
