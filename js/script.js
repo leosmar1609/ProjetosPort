@@ -40,7 +40,7 @@ if (form) {
   form.addEventListener('submit', function (ev) {
     ev.preventDefault();
     var data = new FormData(form);
-    var msg = 'Olá! Vim pelo site da Cadência e quero um orçamento.\n\n' +
+    var msg = 'Olá! Vim pelo site da Digitalle e quero um orçamento.\n\n' +
       'Nome: ' + data.get('nome') + '\n' +
       'Contato: ' + data.get('contato') + '\n' +
       'Tipo de projeto: ' + data.get('tipo') + '\n' +

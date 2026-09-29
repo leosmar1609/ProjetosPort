@@ -1,7 +1,7 @@
 # Ferramentas de mockup para o portfólio
 
 Kit usado pra gerar os prints "bonitos" (com moldura de navegador ou janela, fundo suave e a
-assinatura "cadência") que entram nos cards de projeto do site. Guardado aqui pra reusar
+assinatura "digitalle") que entram nos cards de projeto do site. Guardado aqui pra reusar
 quando você tiver projetos reais pra fotografar.
 
 ## Site ou sistema web

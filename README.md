@@ -1,4 +1,4 @@
-# Cadência — site de portfólio e orçamento
+# Digitalle — site de portfólio e orçamento
 
 Site de Leonardo de Souza Marcos (LM) para apresentar serviços e receber pedidos de orçamento.
 
