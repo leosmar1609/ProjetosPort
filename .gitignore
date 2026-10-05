@@ -1,0 +1,16 @@
+# Pastas de trabalho local — não fazem parte do site publicado
+_compose/
+ferramentas/
+node_modules/
+
+# Código-fonte, bancos de dados e segredos de cada projeto.
+# São sistemas separados (alguns com dados reais de cliente), não a vitrine.
+# Nunca publicar nem versionar aqui dentro.
+projetos/
+
+# Variáveis de ambiente, por garantia (caso algum .env escape da regra acima)
+.env
+.env.*
+*.sqlite
+*.sqlite-shm
+*.sqlite-wal

@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <!-- Logo provisória: troque este arquivo (ou coloque logo.png) quando a logo oficial chegar -->
+  <circle cx="60" cy="60" r="58" fill="#0f0d0b" stroke="#c9a45a" stroke-width="3"/>
+  <circle cx="60" cy="60" r="50" fill="none" stroke="#c9a45a" stroke-width="1" opacity=".55"/>
+  <text x="60" y="73" text-anchor="middle" font-family="Georgia, serif" font-size="40" font-weight="700" fill="#f3ece0" letter-spacing="1">CB</text>
+  <path d="M38 88h44" stroke="#c9a45a" stroke-width="2" stroke-linecap="round"/>
+  <path d="M42 30c6 6 30 6 36 0" fill="none" stroke="#c9a45a" stroke-width="2" stroke-linecap="round"/>
+</svg>

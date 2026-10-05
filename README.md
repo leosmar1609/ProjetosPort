@@ -5,56 +5,65 @@ Site de Leonardo de Souza Marcos (LM) para apresentar serviços e receber pedido
 ## Estrutura
 
 ```
-index.html          página única do site
-css/styles.css       estilos
+index.html            página única do site (+ a "página do projeto", que abre por cima)
+css/styles.css        estilos
+js/projetos.js        LISTA DOS PROJETOS: textos, imagens, galeria e demonstração de cada um
+js/vitrine.js         monta os cards, os filtros e a página do projeto (não precisa mexer)
 js/script.js          menu mobile, animações de entrada e o botão de orçamento via WhatsApp
-assets/projetos/      onde ficam as imagens dos projetos (veja o README.txt lá dentro)
+assets/projetos/      capas e telas da galeria de cada projeto
+demos/                versões de demonstração dos sistemas, que rodam direto no navegador
+servir.mjs            servidorzinho para ver o site no seu computador
+ver-site.cmd          abre o site em http://localhost:8080
 ```
 
 ## Ver o site no seu computador
 
-Basta abrir o `index.html` duas vezes clicando nele — funciona sem precisar instalar nada.
+Dê dois cliques em **`ver-site.cmd`**. Ele abre o navegador em http://localhost:8080 (deixe a janela
+preta aberta enquanto estiver olhando; feche para parar).
+
+> Abrir o `index.html` direto (duplo clique) mostra o site, mas as **demonstrações ao vivo** não
+> funcionam assim: elas precisam ser servidas por http, como acontece quando o site está publicado.
 
 ## Editar textos e contatos
 
-- WhatsApp: procure por `5511994608491` no `index.html` e no `js/script.js` e troque pelo seu número (padrão: DDI+DDD+número, só dígitos).
+- WhatsApp: procure por `5511979934136` no `js/script.js` (usado no orçamento e no botão
+  "Quero um projeto assim" de cada projeto).
 - E-mail: procure por `leo.marcos6440@gmail.com`.
-- Instagram: no rodapé do `index.html`, procure por `Instagram (em breve)` — quando criar a conta, troque `href="#"` pelo link do perfil e apague `aria-disabled="true"` e `onclick="return false;"`.
-- Projetos reais: veja a seção **Como subir as imagens dos projetos** abaixo.
+- Instagram: no rodapé do `index.html`, procure por `Instagram (em breve)`. Quando criar a conta, troque `href="#"` pelo link do perfil e apague `aria-disabled="true"` e `onclick="return false;"`.
 
-## Como subir as imagens dos projetos
+## Projetos (cards + página de cada projeto)
 
-**Passo 1 — prepare a imagem**
-Print de tela ou mockup do projeto, formato JPG ou PNG, de preferência na proporção 16:10 (ex: 1600×1000px). Se o arquivo for muito grande (+1MB), comprima antes em [squoosh.app](https://squoosh.app) ou [tinypng.com](https://tinypng.com) — o site carrega mais rápido.
+Todos os projetos ficam em **`js/projetos.js`**. Cada bloco `{ ... }` vira um card na seção Projetos e
+uma página que abre ao clicar, com endereço próprio (ex.: `seusite.com/#projeto/cristiano-barbearia`,
+dá para mandar esse link direto para um cliente).
 
-**Passo 2 — coloque o arquivo na pasta certa**
-Copie a imagem (arrastando pelo Explorador de Arquivos mesmo) para dentro de `assets/projetos/`. Dê um nome simples, sem espaço ou acento, ex: `loja-nova-estacao.jpg`.
+A página do projeto tem:
+- **Ao vivo**: o sistema funcionando dentro de uma moldura de celular, totem ou navegador (campo `demo`);
+- **Galeria**: carrossel com as telas e legendas (campo `galeria`);
+- resumo, o desafio, o que entrega, tecnologias e o botão de WhatsApp.
 
-**Passo 3 — edite o index.html**
-Abra o `index.html` com o Bloco de Notas, VS Code ou outro editor de texto. Use Ctrl+F e procure por `imagem do projeto` — cada ocorrência é um card de projeto. Você vai ver um bloco assim:
+**Adicionar um projeto:** copie um bloco inteiro em `js/projetos.js`, troque `slug` (sem espaço nem
+acento), textos e imagens. A ordem da lista é a ordem dos cards. `tipo` define o filtro
+(`site`, `desktop`, `analytics`, `api`). Projeto sem demonstração: apague o campo `demo` (fica só a galeria).
 
-```html
-<div class="project-media">
-  <svg width="34" height="34" viewBox="0 0 24 24" fill="none">...</svg>
-  <span>imagem do projeto</span>
-</div>
-```
+**Imagens:** coloque em `assets/projetos/<slug>/`, de preferência 1600×1000 (16:10), em WebP ou JPG
+comprimido ([squoosh.app](https://squoosh.app)).
 
-Apague o `<svg>` e o `<span>` e coloque sua imagem no lugar:
+### Demonstrações ao vivo (`demos/`)
 
-```html
-<div class="project-media">
-  <img src="assets/projetos/loja-nova-estacao.jpg" alt="Loja Nova Estação — site institucional">
-</div>
-```
+São os próprios sistemas, compilados num modo em que tudo roda no navegador com dados de exemplo
+(nada vai para banco nenhum; o que o visitante faz fica só no navegador dele).
 
-**Passo 4 — atualize o texto do card**
-Logo abaixo, no mesmo card, troque:
-- `.project-tag` → categoria do projeto (ex: "Site institucional", "E-commerce", "Sistema para comércio")
-- `<h3>Nome do projeto</h3>` → o nome real
-- `<p>Breve descrição...</p>` → uma frase sobre o que foi entregue
+| Pasta | Projeto | Como gerar de novo (rodar dentro da pasta do projeto) |
+|---|---|---|
+| `demos/cristiano-barbearia` | Cristiano Barbearia | `$env:DEMO_OUT="$HOME/Desktop/PORT/demos/cristiano-barbearia"; npm run build:demo` |
+| `demos/cristiano-analytics` | Cristiano Analytics | `$env:DEMO_OUT="$HOME/Desktop/PORT/demos/cristiano-analytics"; npm run build:demo` |
+| `demos/lous-garden-totem` | Lou's Garden (totem) | `$env:DEMO_OUT="$HOME/Desktop/PORT/demos/lous-garden-totem"; npm run build:demo` |
+| `demos/financas-analytics` | Painel Financeiro | `npm run build:demo` |
 
-Repita os passos 1 a 4 para cada projeto que quiser adicionar. Se precisar de mais cards além dos 4 que já existem, copie um bloco `<div class="project-card reveal">...</div>` inteiro (incluindo a tag de abertura e fechamento) e cole logo depois de um existente, dentro da `<div class="grid-2">`.
+(Os comandos com `$env:` são para o PowerShell, o terminal padrão do VS Code no Windows.)
+
+Login da demonstração do barbeiro: **demo / demo1234**. A página do projeto já entra sozinha.
 
 ## Publicar o site (deixar no ar, com link pra colocar no Instagram)
 
@@ -76,3 +85,7 @@ Qualquer uma dessas opções é gratuita:
 3. Deploy automático, com link público
 
 Depois de publicado, é só colocar o link na bio do Instagram.
+
+> Publique o site **na raiz do domínio** (ex.: `digitalle.com.br` ou `algo.netlify.app`). A demonstração do
+> Painel Financeiro espera estar em `/demos/financas-analytics`; no GitHub Pages com nome de repositório
+> no endereço ela não abre (as outras funcionam).
