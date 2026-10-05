@@ -6,7 +6,8 @@ node_modules/
 # Código-fonte, bancos de dados e segredos de cada projeto.
 # São sistemas separados (alguns com dados reais de cliente), não a vitrine.
 # Nunca publicar nem versionar aqui dentro.
-projetos/
+# (a barra no início é proposital — sem ela, também bloquearia assets/projetos/)
+/projetos/
 
 # Variáveis de ambiente, por garantia (caso algum .env escape da regra acima)
 .env
