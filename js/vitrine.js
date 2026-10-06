@@ -6,7 +6,7 @@
   var dlg = document.getElementById('case');
   if (!grid || !dlg || typeof PROJETOS === 'undefined') return;
 
-  var NOMES_TIPO = { site: 'Sites', desktop: 'Apps desktop', analytics: 'Analytics', sistema: 'Sistemas', api: 'APIs' };
+  var NOMES_TIPO = { site: 'Sites', desktop: 'Apps desktop', analytics: 'Analytics', sistema: 'Sistemas', api: 'APIs', jogo: 'Jogos' };
   var reduzMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
   var filtro = 'todos';
 

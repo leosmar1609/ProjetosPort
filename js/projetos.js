@@ -1,12 +1,42 @@
 // Projetos do portfólio. Cada item vira um card na seção #projetos e uma página de detalhes (#projeto/<slug>).
 //
 // Campos:
-//   slug, nome, tag (texto do selo), tipo (filtro: site | sistema | desktop | analytics | api),
+//   slug, nome, tag (texto do selo), tipo (filtro: site | sistema | desktop | analytics | api | jogo),
 //   status, capa, resumo (card), problema, destaques[], stack[],
 //   demo (opcional) — demonstração ao vivo dentro de uma moldura:
 //     { telas: [{ rotulo, src, largura, altura, moldura: 'celular' | 'navegador' | 'totem', url }], dica }
 //   galeria[] — { src, legenda }
 var PROJETOS = [
+  {
+    slug: 'paala',
+    nome: 'Paala',
+    subtitulo: 'Jogo de palavras, no estilo Termo — sem a trava do desafio único do dia',
+    tag: 'Jogo',
+    tipo: 'jogo',
+    status: 'Novo',
+    capa: 'assets/projetos/paala/capa.png',
+    resumo: 'Um joguinho de adivinhar palavras de 5 letras, com três modos — Solo, Dueto e Quarteto — e tentativas ilimitadas: joga quantas rodadas quiser, na hora que quiser.',
+    problema: 'Nos jogos desse estilo, tem só uma palavra por dia — resolveu, acabou a graça até amanhã. Aqui não: cada rodada sorteia palavras novas, então dá pra jogar várias vezes seguidas, sozinho ou tentando 2 ou 4 palavras ao mesmo tempo.',
+    destaques: [
+      'Modo Solo (1 palavra, 6 tentativas), Dueto (2 palavras, 7 tentativas) e Quarteto (4 palavras, 9 tentativas)',
+      'Sem desafio único do dia — cada partida sorteia palavras novas na hora',
+      'Mais de 9 mil palavras válidas pra digitar e 2 mil selecionadas como resposta, cruzadas com frequência de uso real do português',
+      'Digita sem se preocupar com acento (e com teclinha de Ç no teclado virtual)',
+      'Teclado físico ou virtual, com cores reaproveitadas tecla a tecla',
+    ],
+    stack: ['React', 'TypeScript', 'Vite', 'Tailwind'],
+    demo: {
+      telas: [{ rotulo: 'Jogo', src: 'demos/paala/index.html', largura: 420, altura: 860, moldura: 'celular' }],
+      dica: 'Escolha um modo (Solo, Dueto ou Quarteto) e jogue à vontade — sem desafio único do dia.',
+    },
+    galeria: [
+      { src: 'assets/projetos/paala/capa.png', legenda: 'Tela inicial do modo Solo' },
+      { src: 'assets/projetos/paala/01-palpite.png', legenda: 'Palpite avaliado, com o teclado reaproveitando as cores' },
+      { src: 'assets/projetos/paala/02-dueto.png', legenda: 'Modo Dueto: 2 palavras ao mesmo tempo' },
+      { src: 'assets/projetos/paala/03-quarteto.png', legenda: 'Modo Quarteto: 4 palavras ao mesmo tempo' },
+      { src: 'assets/projetos/paala/04-vitoria.png', legenda: 'Tela de vitória, com a palavra revelada' },
+    ],
+  },
   {
     slug: 'lous-garden',
     nome: 'Lou’s Garden',
