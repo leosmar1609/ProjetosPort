@@ -1,5 +1,22 @@
 document.documentElement.classList.add('js');
 
+// Alternar tema claro/escuro (o estado inicial já é aplicado por um script inline no <head>,
+// antes do CSS pintar, pra não piscar o tema errado)
+var themeToggle = document.getElementById('themeToggle');
+if (themeToggle) {
+  var root = document.documentElement;
+  var temaAtual = function () {
+    return root.dataset.theme || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+  };
+  themeToggle.setAttribute('aria-pressed', temaAtual() === 'dark' ? 'true' : 'false');
+  themeToggle.addEventListener('click', function () {
+    var novo = temaAtual() === 'dark' ? 'light' : 'dark';
+    root.dataset.theme = novo;
+    try { localStorage.setItem('digitalle-theme', novo); } catch (e) {}
+    themeToggle.setAttribute('aria-pressed', novo === 'dark' ? 'true' : 'false');
+  });
+}
+
 var yearEl = document.getElementById('year');
 if (yearEl) yearEl.textContent = new Date().getFullYear();
 

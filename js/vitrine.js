@@ -179,6 +179,19 @@
       return t;
     });
 
+    var topo = el('div', 'live-top');
+    var btnTela = el('button', 'btn-tela-cheia',
+      '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M8 3H5a2 2 0 0 0-2 2v3M16 3h3a2 2 0 0 1 2 2v3M8 21H5a2 2 0 0 1-2-2v-3M16 21h3a2 2 0 0 0 2-2v-3" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>' +
+      'Tela cheia');
+    btnTela.type = 'button';
+    btnTela.addEventListener('click', function () {
+      var ativo = linha.querySelector('.device:not([hidden])') || linha.querySelector('.device');
+      var f = ativo && ativo.querySelector('iframe');
+      if (f && f.src) window.open(f.src, '_blank', 'noopener');
+    });
+    topo.appendChild(btnTela);
+    palco.appendChild(topo);
+
     var troca = null;
     if (compacto && telas.length > 1) {
       troca = el('div', 'live-switch');
@@ -208,8 +221,7 @@
       }
       dev.appendChild(tela);
       if (t.moldura === 'totem') dev.appendChild(el('div', 'device-foot'));
-      var cap = el('figcaption', '', esc(t.rotulo) +
-        ' <a href="' + esc(t.src) + '" target="_blank" rel="noopener">abrir em tela cheia <span aria-hidden="true">↗</span></a>');
+      var cap = el('figcaption', '', esc(t.rotulo));
       dev.appendChild(cap);
       linha.appendChild(dev);
 
