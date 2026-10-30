@@ -1,0 +1,12 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "delicias-neide",
+  "main": "src/index.js",
+  "compatibility_date": "2026-09-01",
+  // Versão web do app (gerada com "expo export"); o resto das rotas cai na API
+  "assets": {
+    "directory": "./public"
+  },
+  "observability": { "enabled": true }
+  // Senhas e dados do banco ficam como secrets (npx wrangler secret ...), nunca aqui
+}

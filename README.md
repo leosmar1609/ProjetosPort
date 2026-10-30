@@ -60,6 +60,7 @@ São os próprios sistemas, compilados num modo em que tudo roda no navegador co
 | `demos/cristiano-analytics` | Cristiano Analytics | `$env:DEMO_OUT="$HOME/Desktop/PORT/demos/cristiano-analytics"; npm run build:demo` |
 | `demos/lous-garden-totem` | Lou's Garden (totem) | `$env:DEMO_OUT="$HOME/Desktop/PORT/demos/lous-garden-totem"; npm run build:demo` |
 | `demos/financas-analytics` | Painel Financeiro | `npm run build:demo` |
+| `demos/delicias-da-neide` | Delícias da Neide (app) | `npm run build:demo` (dentro de `pao-de-mel-app`) |
 
 (Os comandos com `$env:` são para o PowerShell, o terminal padrão do VS Code no Windows.)
 

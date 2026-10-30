@@ -1,12 +1,43 @@
 // Projetos do portfólio. Cada item vira um card na seção #projetos e uma página de detalhes (#projeto/<slug>).
 //
 // Campos:
-//   slug, nome, tag (texto do selo), tipo (filtro: site | sistema | desktop | analytics | api | jogo),
+//   slug, nome, tag (texto do selo), tipo (filtro: site | mobile | sistema | desktop | analytics | api | jogo),
 //   status, capa, resumo (card), problema, destaques[], stack[],
 //   demo (opcional) — demonstração ao vivo dentro de uma moldura:
 //     { telas: [{ rotulo, src, largura, altura, moldura: 'celular' | 'navegador' | 'totem', url }], dica }
 //   galeria[] — { src, legenda }
 var PROJETOS = [
+  {
+    slug: 'delicias-da-neide',
+    nome: 'Delícias da Neide',
+    subtitulo: 'App de vendas, estoque e análises para uma confeitaria de pão de mel',
+    tag: 'App mobile',
+    tipo: 'mobile',
+    status: 'Novo',
+    capa: 'assets/projetos/delicias-da-neide/capa.png',
+    resumo: 'App Android para quem vende pão de mel: registra a produção, as compras e cada venda, e mostra quanto sobrou de lucro — com estratégias sugeridas a partir dos próprios números.',
+    problema: 'As vendas ficavam no caderno e os gastos na memória: no fim do mês não dava para saber se o pão de mel estava dando lucro, qual sabor vendia mais nem quem ainda devia. Agora cada venda leva segundos no celular, o estoque se atualiza sozinho e o app aponta o que fazer.',
+    destaques: [
+      'Venda com vários sabores no mesmo pedido, cada um com sua quantidade',
+      'Estoque por sabor: a produção entra, a venda sai, e o app bloqueia vender o que não tem',
+      'Controle de compras por categoria (ingredientes, embalagens, gás)',
+      'Vendas “a receber” com nome do cliente e botão para marcar como pago',
+      'Análises: margem, custo por unidade, crescimento, melhor dia da semana e ponto de equilíbrio do mês',
+      'Estratégias sugeridas a partir dos dados: preço ideal, sabor campeão, hora de produzir, quem cobrar',
+      'Instalável no Android (APK) e no iPhone pela tela de início; servidor sempre no ar e sem custo',
+    ],
+    stack: ['React Native', 'Expo', 'TypeScript', 'Cloudflare Workers', 'Hono', 'TiDB (MySQL)'],
+    demo: {
+      telas: [{ rotulo: 'App', src: 'demos/delicias-da-neide/index.html', largura: 390, altura: 844, moldura: 'celular' }],
+      dica: 'Dados de exemplo. Faça uma venda com mais de um sabor (aba Vendas, botão +) e veja o estoque e as análises mudarem.',
+    },
+    galeria: [
+      { src: 'assets/projetos/delicias-da-neide/capa.png', legenda: 'Início, nova venda e análises' },
+      { src: 'assets/projetos/delicias-da-neide/01-vendas.png', legenda: 'Lista de pedidos e nova venda com vários sabores' },
+      { src: 'assets/projetos/delicias-da-neide/02-estoque.png', legenda: 'Estoque por sabor e compras por categoria' },
+      { src: 'assets/projetos/delicias-da-neide/03-analises.png', legenda: 'Indicadores e estratégias geradas a partir das vendas' },
+    ],
+  },
   {
     slug: 'paala',
     nome: 'Paala',
