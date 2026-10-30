@@ -1,0 +1,16 @@
+{
+  "name": "delicias-neide-worker",
+  "private": true,
+  "type": "module",
+  "dependencies": {
+    "@tidbcloud/serverless": "^0.3.0",
+    "hono": "^4.13.13"
+  },
+  "devDependencies": {
+    "wrangler": "^4.152.0"
+  },
+  "scripts": {
+    "publicar": "node --env-file=../pao-de-mel-app/.env publicar.mjs",
+    "local": "node --env-file=../pao-de-mel-app/.env node_modules/wrangler/bin/wrangler.js dev"
+  }
+}

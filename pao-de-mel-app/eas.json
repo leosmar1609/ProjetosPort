@@ -1,0 +1,14 @@
+{
+  "build": {
+    "preview": {
+      "distribution": "internal",
+      "android": {
+        "buildType": "apk"
+      },
+      "env": {
+        "EXPO_PUBLIC_API_URL": "https://delicias-neide.leo-marcos6440.workers.dev"
+      }
+    },
+    "production": {}
+  }
+}

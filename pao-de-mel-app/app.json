@@ -1,0 +1,35 @@
+{
+  "expo": {
+    "name": "Delícias da Neide",
+    "slug": "pao-de-mel-app",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "ios": {
+      "supportsTablet": true,
+      "bundleIdentifier": "com.techia.paodemel"
+    },
+    "android": {
+      "adaptiveIcon": {
+        "backgroundColor": "#6B3A1E",
+        "foregroundImage": "./assets/android-icon-foreground.png",
+        "backgroundImage": "./assets/android-icon-background.png",
+        "monochromeImage": "./assets/android-icon-monochrome.png"
+      },
+      "predictiveBackGestureEnabled": false,
+      "package": "com.techia.paodemel"
+    },
+    "web": {
+      "favicon": "./assets/favicon.png",
+      "name": "Delícias da Neide",
+      "themeColor": "#6B3A1E"
+    },
+    "extra": {
+      "eas": {
+        "projectId": "8b3e5958-253f-4f79-9bd9-324c5ef11696"
+      }
+    },
+    "owner": "leo.smarcos"
+  }
+}
