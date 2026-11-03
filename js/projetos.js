@@ -73,7 +73,7 @@ var PROJETOS = [
     tipo: 'mobile',
     status: 'Novo',
     capa: 'assets/projetos/lumiere-brownies/capa.png',
-    resumo: 'App para iPhone (instalado pela tela de início, sem App Store) que controla as vendas e as encomendas de brownies: data e hora de entrega, status do pedido, estoque por sabor e o lucro do mês.',
+    resumo: 'App de gestão para uma confeitaria de brownies: vendas, encomendas com data e hora de entrega, status de cada pedido, estoque por sabor e o lucro do mês.',
     problema: 'As encomendas chegavam pelo WhatsApp e ficavam espalhadas na conversa — fácil esquecer uma entrega ou não saber quanto sobrou de lucro. Agora cada encomenda tem data, hora e status, e o app mostra o que precisa ser feito hoje.',
     destaques: [
       'Encomendas com data e hora de entrega e status: a fazer → pronto → entregue',
@@ -81,7 +81,7 @@ var PROJETOS = [
       'Vendas com vários sabores, estoque que se atualiza sozinho e alerta de estoque baixo',
       'Lucro, gastos, ticket médio e valores a receber por período',
       'Abertura animada com a identidade da marca Lumière',
-      'Instalável no iPhone pela tela de início, sem pagar a conta de desenvolvedor da Apple',
+      'Funciona em qualquer celular, com dados sincronizados na nuvem',
     ],
     stack: ['React Native', 'Expo', 'TypeScript', 'Cloudflare Workers', 'Hono', 'TiDB (MySQL)'],
     demo: {
