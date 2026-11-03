@@ -1,0 +1,21 @@
+<!-- LOGO GENÉRICO da IBAMO (provisório). Para trocar pelo oficial: substitua este arquivo
+     (de preferência um SVG quadrado) e rode "npm run icones" para refazer os ícones do app. -->
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 120">
+  <circle cx="60" cy="60" r="58" fill="#1F2D4A"/>
+  <circle cx="60" cy="60" r="52" fill="none" stroke="#B08D3C" stroke-width="1.2" opacity=".55"/>
+  <!-- monte -->
+  <path d="M20 86 L47 50 L58 64 L72 44 L100 86 Z" fill="#B08D3C"/>
+  <path d="M72 44 L79 54 L73 52 L68 55 Z" fill="#F6F4EF" opacity=".85"/>
+  <!-- ramo de oliveira -->
+  <path d="M34 36 Q58 22 86 31" stroke="#E9DDBF" stroke-width="2.2" fill="none" stroke-linecap="round"/>
+  <g fill="#C9B77A">
+    <ellipse cx="42" cy="31" rx="6.5" ry="2.6" transform="rotate(-38 42 31)"/>
+    <ellipse cx="45" cy="36" rx="6.5" ry="2.6" transform="rotate(28 45 36)"/>
+    <ellipse cx="56" cy="25" rx="6.5" ry="2.6" transform="rotate(-30 56 25)"/>
+    <ellipse cx="59" cy="31" rx="6.5" ry="2.6" transform="rotate(24 59 31)"/>
+    <ellipse cx="70" cy="24" rx="6.5" ry="2.6" transform="rotate(-14 70 24)"/>
+    <ellipse cx="73" cy="30" rx="6.5" ry="2.6" transform="rotate(32 73 30)"/>
+  </g>
+  <circle cx="84" cy="27" r="2.6" fill="#7E8F4A"/>
+  <text x="60" y="103" text-anchor="middle" font-family="Georgia, serif" font-size="11.5" font-weight="700" letter-spacing="2.4" fill="#F6F4EF">IBAMO</text>
+</svg>
