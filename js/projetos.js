@@ -8,6 +8,39 @@
 //   galeria[] — { src, legenda }
 var PROJETOS = [
   {
+    slug: 'quadra-imoveis',
+    nome: 'Quadra Imóveis',
+    subtitulo: 'Site institucional de imobiliária de alto padrão, pensado para transformar visitas em contatos',
+    tag: 'Site',
+    tipo: 'site',
+    status: 'Novo',
+    capa: 'assets/projetos/quadra-imoveis/capa.png',
+    resumo: 'Site completo para uma imobiliária boutique: identidade visual própria, busca de imóveis com filtros, página de detalhes com galeria e um contato desenhado para conversão, com WhatsApp em destaque.',
+    problema: 'Imobiliárias de alto padrão perdem clientes para sites genéricos, lentos e com o contato escondido no rodapé. Aqui cada seção leva a uma conversa: o visitante encontra o imóvel, vê os detalhes e fala com um consultor em um toque, já com a mensagem pronta.',
+    destaques: [
+      'Identidade completa: nome, logomarca, paleta e tipografia próprias',
+      'Busca por finalidade, região, tipo e dormitórios, com contagem de imóveis em cada opção',
+      'Detalhes do imóvel com galeria, taxas, favoritos, link para compartilhar e “agendar visita”',
+      'Formulário com validação em tempo real, máscara de telefone, correção de e-mail digitado errado e rascunho salvo',
+      'WhatsApp com mensagens prontas em cada ponto da página e status do atendimento conforme o horário',
+      'Layouts próprios para celular, tablet, notebook e monitores ultrawide',
+      'SEO com dados estruturados, acessibilidade e pontos de integração com CRM prontos',
+    ],
+    stack: ['HTML', 'CSS', 'JavaScript', 'SEO', 'Acessibilidade'],
+    demo: {
+      telas: [
+        { rotulo: 'Desktop', src: 'demos/quadra-imoveis/index.html', largura: 1440, altura: 900, moldura: 'navegador', url: 'quadraimoveis.com.br' },
+        { rotulo: 'Celular', src: 'demos/quadra-imoveis/index.html', largura: 390, altura: 844, moldura: 'celular' },
+      ],
+      dica: 'Busque um imóvel para alugar, abra os detalhes e toque em “Agendar visita” — o formulário de contato já vem preenchido.',
+    },
+    galeria: [
+      { src: 'assets/projetos/quadra-imoveis/capa.png', legenda: 'Hero com busca de imóveis, no computador e no celular' },
+      { src: 'assets/projetos/quadra-imoveis/01-imoveis.png', legenda: 'Detalhes do imóvel com galeria e contato direto' },
+      { src: 'assets/projetos/quadra-imoveis/02-contato.png', legenda: 'Seção de contato: WhatsApp em destaque e formulário validado' },
+    ],
+  },
+  {
     slug: 'monitor-sorriso',
     nome: 'Monitor do Sorriso',
     subtitulo: 'App de saúde bucal para adolescentes: kits nos totens das escolas, consultas na UBS e chat com o dentista',
